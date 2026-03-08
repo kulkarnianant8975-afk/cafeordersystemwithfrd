@@ -4,7 +4,7 @@ export const CAFE_CONFIG = {
   name: "TTMM Cafe",
   lat: 19.11996906316397,
   lng: 76.744252399406,
-  radius: 80,
+  radius: 2000,
   pins: {
     "1": "1234",
     "2": "2345",
