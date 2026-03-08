@@ -50,6 +50,9 @@ export const Navbar = ({ cartCount }: { cartCount: number }) => {
               )}
             </Link>
           )}
+           <Link to="/admin" className="p-2 text-[#8B7E74] hover:text-[#4A3728] hover:bg-[#E5E1D1] rounded-lg transition-colors" title="Admin Panel">
+            <LayoutDashboard size={20} />
+          </Link>
         </div>
       </div>
     </nav>

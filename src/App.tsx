@@ -225,6 +225,13 @@ export default function App() {
             </ul>
           </div>
         </div>
+        <div className="pt-4">
+            <p className="text-sm text-[#8B7E74]">
+              Once configured, you can access the Admin Panel at:
+              <br />
+              <code className="bg-[#E5E1D1] px-2 py-1 rounded mt-1 inline-block">/admin</code>
+            </p>
+          </div>
       </Layout>
     );
   }
