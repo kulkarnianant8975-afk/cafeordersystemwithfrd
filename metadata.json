@@ -1,0 +1,5 @@
+{
+  "name": "Brew & Bite - QR Ordering",
+  "description": "A modern QR-based restaurant ordering system with GPS geofencing and real-time dashboard.",
+  "requestFramePermissions": ["geolocation"]
+}
