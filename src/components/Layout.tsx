@@ -11,12 +11,18 @@ function cn(...inputs: ClassValue[]) {
 
 export const Navbar = ({ cartCount }: { cartCount: number }) => {
   const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const table = searchParams.get('table');
   const isAdmin = location.pathname.startsWith('/admin');
+
+  const getLink = (to: string) => {
+    return table ? `${to}?table=${table}` : to;
+  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 bg-[#FDFCF0] border-b border-[#E5E1D1] z-50 px-4 py-3">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2">
+        <Link to={getLink("/")} className="flex items-center gap-2">
           <div className="w-10 h-10 bg-[#4A3728] rounded-xl flex items-center justify-center text-white">
             <Coffee size={24} />
           </div>
@@ -37,7 +43,7 @@ export const Navbar = ({ cartCount }: { cartCount: number }) => {
               </Link>
             </div>
           ) : (
-            <Link to="/cart" className="relative p-2 text-[#4A3728] hover:bg-[#E5E1D1] rounded-lg transition-colors">
+            <Link to={getLink("/cart")} className="relative p-2 text-[#4A3728] hover:bg-[#E5E1D1] rounded-lg transition-colors">
               <ShoppingCart size={24} />
               {cartCount > 0 && (
                 <motion.span

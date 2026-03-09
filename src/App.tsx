@@ -64,11 +64,11 @@ const CustomerFlow = ({ onCartChange }: { onCartChange: (count: number) => void 
     setCart((prev) => prev.filter((item) => item.id !== id));
   };
 
-  const placeOrder = async () => {
-    if (!checkRateLimit(tableNumber)) {
-      setError('Order limit reached (max 5 per hour). Please wait.');
-      return;
-    }
+  // const placeOrder = async () => {
+  //   if (!checkRateLimit(tableNumber)) {
+  //     setError('Order limit reached (max 5 per hour). Please wait.');
+  //     return;
+  //   }
 
     const subtotal = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
     const orderData: Omit<Order, 'id'> = {

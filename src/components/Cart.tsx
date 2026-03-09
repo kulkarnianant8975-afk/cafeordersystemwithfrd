@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Trash2, Plus, Minus, ArrowLeft, ShoppingBag } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link,useLocation} from 'react-router-dom';
 import { CartItem } from '../types';
 
 interface CartProps {
@@ -15,6 +15,7 @@ interface CartProps {
 
 export const Cart = ({ items, onUpdateQuantity, onRemove, onPlaceOrder, tableNumber, isNear }: CartProps) => {
   const subtotal = items.reduce((acc, item) => acc + item.price * item.quantity, 0);
+  const location = useLocation();
   const canPlaceOrder = isNear === true;
 
   if (items.length === 0) {
@@ -26,7 +27,7 @@ export const Cart = ({ items, onUpdateQuantity, onRemove, onPlaceOrder, tableNum
         <h2 className="text-2xl font-serif font-bold">Your cart is empty</h2>
         <p className="text-[#8B7E74]">Looks like you haven't added anything yet.</p>
         <Link
-          to="/"
+          to={`/${location.search}`}
           className="inline-block bg-[#4A3728] text-white px-8 py-3 rounded-2xl font-bold hover:bg-[#3A2B20] transition-colors"
         >
           Browse Menu
@@ -38,7 +39,7 @@ export const Cart = ({ items, onUpdateQuantity, onRemove, onPlaceOrder, tableNum
   return (
     <div className="max-w-2xl mx-auto space-y-8">
       <div className="flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2 text-[#4A3728] font-medium">
+        <Link to={`/${location.search}`} className="flex items-center gap-2 text-[#4A3728] font-medium">
           <ArrowLeft size={20} />
           Back to Menu
         </Link>
