@@ -2,9 +2,10 @@ import { MenuItem } from './types';
 
 export const CAFE_CONFIG = {
   name: "TTMM Cafe",
-  lat: 19.11996906316397,
-  lng: 76.744252399406,
+  lat: 19.255103,
+  lng: 76.786667,
   radius: 2000,
+  // 19.255103, 76.786667
   pins: {
     "1": "1234",
     "2": "2345",
